@@ -1,0 +1,70 @@
+# This file created by conda-build 24.3.0
+# ------------------------------------------------
+
+package:
+  name: brotli-bin
+  version: 1.0.9
+source:
+  fn: brotli-1.0.9.tar.gz
+  patches:
+    - 0001-Add-separate-options-to-disable-shared-static-librar.patch
+    - 0002-Fix-pkgconfig-rpath.patch
+  sha256: f9e8d81d0405ba66d181529af42a3354f838c939095ff99930da6aa9cdf6fe46
+  url: https://github.com/google/brotli/archive/v1.0.9.tar.gz
+build:
+  noarch: false
+  noarch_python: false
+  number: '8'
+  script: install_library.bat
+  string: h2bbff1b_8
+requirements:
+  build:
+    - bzip2 1.0.8 h2bbff1b_5
+    - ca-certificates 2024.3.11 haa95532_0
+    - cmake 3.26.4 h693b641_0
+    - expat 2.6.2 hd77b12b_0
+    - libffi 3.4.4 hd77b12b_0
+    - libuv 1.44.2 h2bbff1b_0
+    - lz4-c 1.9.4 h2bbff1b_0
+    - ninja 1.10.2 haa95532_5
+    - ninja-base 1.10.2 h6d14046_5
+    - openssl 3.0.13 h2bbff1b_0
+    - python 3.12.3 h1d929f7_0
+    - sqlite 3.41.2 h2bbff1b_0
+    - tk 8.6.12 h2bbff1b_0
+    - tzdata 2024a h04d1e81_0
+    - vc 14.2 h21ff451_1
+    - vs2015_runtime 14.27.29016 h5e58377_2
+    - vs2017_win-64 19.16.27032.1 hb4161e2_3
+    - vswhere 2.8.4 haa95532_0
+    - xz 5.4.6 h8cc25b3_0
+    - zlib 1.2.13 h8cc25b3_0
+    - zstd 1.5.5 hd43e919_0
+  host:
+    - libbrotlidec 1.0.9 h2bbff1b_8
+    - libbrotlienc 1.0.9 h2bbff1b_8
+    - vc 14.2 h21ff451_1
+    - vs2015_runtime 14.27.29016 h5e58377_2
+  run:
+    - libbrotlidec 1.0.9 h2bbff1b_8
+    - libbrotlienc 1.0.9 h2bbff1b_8
+    - vc >=14.1,<15.0a0
+    - vs2015_runtime >=14.16.27012,<15.0a0
+test:
+  commands:
+    - brotli --help
+about:
+  home: https://github.com/google/brotli
+  license: MIT
+  license_file: LICENSE
+  summary: Brotli compression format
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: 3d5265a7-5a4b-418e-a75d-887f717cc51b
+  recipe-maintainers:
+    - CJ-Wright
+    - wesm
+    - xhochy
+  remote_url: git@github.com:AnacondaRecipes/brotli-feedstock.git
+  sha: ba7f7649d1161e8c386bce5911b643b8a2cca634
